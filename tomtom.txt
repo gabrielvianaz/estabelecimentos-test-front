@@ -1,0 +1,5 @@
+Latitude e Longitude pelo CEP
+https://api.tomtom.com/search/2/structuredGeocode.json?key=e299rwXhsQwkn8JZObN03HvAf5Wl2aBC&countryCode=BR&postalCode={CEP}
+
+Endereço pela latitude e longitude
+https://api.tomtom.com/search/2/reverseGeocode/{LAT},{LNG}.json?key=e299rwXhsQwkn8JZObN03HvAf5Wl2aBC&radius=100

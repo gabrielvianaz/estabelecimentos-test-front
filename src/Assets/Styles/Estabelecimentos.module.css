@@ -1,0 +1,16 @@
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.header h1 {
+  text-align: center;
+  margin: 0;
+}

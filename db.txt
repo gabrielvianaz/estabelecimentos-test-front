@@ -1,0 +1,19 @@
+Usuario:
+id unique
+email unique
+senha
+nome
+
+Estabelecimento:
+id unique
+nome
+tipo
+cep
+logradouro
+numero
+bairro
+cidade
+estado
+latitude
+longitude
+Usuario

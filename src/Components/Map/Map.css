@@ -1,0 +1,10 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.leaflet-container {
+  height: 500px;
+  width: 1000px;
+  /* border-radius: 5px; */
+}

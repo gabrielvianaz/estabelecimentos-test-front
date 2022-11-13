@@ -1,0 +1,100 @@
+.container {
+  width: 100wh;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.login,
+.cadastrar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  background: white;
+}
+
+.cadastrar {
+  background: rgb(76, 191, 154);
+  background: linear-gradient(
+    180deg,
+    rgba(76, 191, 154, 1) 0%,
+    rgba(58, 175, 161, 1) 100%
+  );
+}
+
+.tituloVerde {
+  font-size: 3rem;
+  color: #3aafa1;
+  margin-bottom: 50px;
+}
+
+.tituloBranco {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginForm input {
+  display: block;
+  width: 400px;
+  height: 40px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  background: #f4f8f7;
+  padding: 10px;
+}
+
+.loginForm input:focus {
+  outline: none;
+}
+
+.loginForm div.senha input {
+  margin-bottom: 0;
+}
+
+.loginForm input.senha {
+  background: transparent;
+}
+
+.loginForm div.senha {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  background: #f4f8f7;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.loginForm div.senha span {
+  width: 25px;
+  height: 20px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.loginForm div.senha input[type='password'] + span {
+  background: url('../Images/exibir-senha.svg') no-repeat;
+}
+
+.loginForm div.senha input[type='text'] + span {
+  background: url('../Images/ocultar-senha.svg') no-repeat;
+}
+
+p.erro {
+  align-self: start;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 30px;
+}

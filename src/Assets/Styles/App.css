@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+
+* {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+::placeholder {
+  color: #c3c6c5;
+}
+
+:-ms-input-placeholder {
+  color: #c3c6c5;
+}
+
+::-ms-input-placeholder {
+  color: #c3c6c5;
+}
+
+.tituloVerde {
+  font-size: 3rem;
+  color: #3aafa1;
+  margin-bottom: 50px;
+}
+
+.tituloBranco {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 50px;
+}
