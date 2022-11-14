@@ -33,6 +33,13 @@ const NovoEstabelecimento = () => {
     setEstabelecimento({ ...estabelecimento, [id]: value });
   }
 
+  function handleCep({ target }) {
+    const { value } = target;
+    if (!isNaN(value)) {
+      setEstabelecimento({ ...estabelecimento, cep: value });
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -159,7 +166,7 @@ const NovoEstabelecimento = () => {
               id="cep"
               maxLength="8"
               value={estabelecimento.cep}
-              onChange={handleChange}
+              onChange={handleCep}
             />
             {estabelecimento.latitude && estabelecimento.tipo && (
               <div className={styles.map}>
