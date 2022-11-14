@@ -5,12 +5,42 @@
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 150px;
-  align-items: center;
-  margin: 30px 0;
+  margin-top: 30px;
 }
 
 .header h1 {
-  text-align: center;
   margin: 0;
+  text-align: center;
+}
+
+.header button {
+  justify-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.naoCadastrou {
+  height: 70vh;
+  box-sizing: border-box;
+  display: flex;
+  border: 3px solid #3aafa1;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.naoCadastrou h2 {
+  color: #3aafa1;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.spinner {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3aafa1;
+  border-radius: 5px;
 }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Button from '../Components/Button';
 import styles from '../Assets/Styles/Login.module.css';
+import { Animated } from 'react-animated-css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Login = () => {
     senha: '',
   });
   const [erro, setErro] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
 
   function handleCadastro() {
     navigate('/cadastro');
@@ -24,22 +26,29 @@ const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     setErro('');
 
-    if (!usuario.email || !usuario.senha)
+    if (!usuario.email || !usuario.senha) {
+      setLoading(false);
       return setErro('Preencha os campos "E-mail" e Senha!');
-    else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(usuario.email))
+    } else if (
+      !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(usuario.email)
+    ) {
+      setLoading(false);
       return setErro('E-mail inválido!');
+    }
 
     axios
-      .post('http://localhost:8081/login', usuario)
+      .post('https://estabelecimentos-back.herokuapp.com/login', usuario)
       .then(({ data }) => {
-        localStorage.token = data;
+        localStorage.token = `Bearer ${data}`;
         navigate('/');
       })
       .catch(({ response }) => {
         if (response.data.msg) setErro(response.data.msg);
-      });
+      })
+      .finally(() => setLoading(false));
   }
 
   function exibirSenha() {
@@ -50,44 +59,50 @@ const Login = () => {
     setTipoInputPassword('password');
   }
 
+  React.useEffect(() => {
+    if (localStorage.token) navigate('/');
+  }, []);
+
   return (
-    <section className={styles.container}>
-      <div className={styles.login}>
-        <h1 className="tituloVerde">Fazer login</h1>
-        <form className={styles.loginForm} onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="E-mail"
-            id="email"
-            value={usuario.email}
-            onChange={handleChange}
-          />
-          <div className={styles.senha}>
+    <Animated>
+      <section className={styles.container}>
+        <div className={styles.login}>
+          <h1 className="tituloVerde">Fazer login</h1>
+          <form className={styles.loginForm} onSubmit={handleSubmit}>
             <input
-              type={tipoInputPassword}
-              className={styles.senha}
-              placeholder="Senha"
-              id="senha"
-              value={usuario.senha}
+              type="text"
+              placeholder="E-mail"
+              id="email"
+              value={usuario.email}
               onChange={handleChange}
             />
-            <span
-              className={styles.exibirSenha}
-              onMouseDown={exibirSenha}
-              onMouseUp={ocultarSenha}
-            ></span>
-          </div>
-          {erro && <p className={styles.erro}>{erro}</p>}
-          <Button>Login</Button>
-        </form>
-      </div>
-      <div className={styles.cadastrar}>
-        <h2 className="tituloBranco">Não possui uma conta?</h2>
-        <button className="branco" onClick={handleCadastro}>
-          Cadastrar
-        </button>
-      </div>
-    </section>
+            <div className={styles.senha}>
+              <input
+                type={tipoInputPassword}
+                className={styles.senha}
+                placeholder="Senha"
+                id="senha"
+                value={usuario.senha}
+                onChange={handleChange}
+              />
+              <span
+                className={styles.exibirSenha}
+                onMouseDown={exibirSenha}
+                onMouseUp={ocultarSenha}
+              ></span>
+            </div>
+            {erro && <p className="erro">{erro}</p>}
+            <Button disabled={loading}>Login</Button>
+          </form>
+        </div>
+        <div className={styles.cadastrar}>
+          <h2 className="tituloBranco">Não possui uma conta?</h2>
+          <button className="branco" onClick={handleCadastro}>
+            Cadastrar
+          </button>
+        </div>
+      </section>
+    </Animated>
   );
 };
 

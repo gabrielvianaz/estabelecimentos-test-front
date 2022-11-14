@@ -1,0 +1,11 @@
+.leaflet-container {
+  height: 400px;
+}
+
+.leaflet-container:focus,
+.leaflet-marker-pane img:focus,
+.leaflet-control-attribution a:focus,
+a.leaflet-control-zoom-in:focus,
+a.leaflet-control-zoom-out:focus {
+  outline: none;
+}

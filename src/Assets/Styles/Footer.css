@@ -1,0 +1,21 @@
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  height: 70px;
+  background: #3aafa1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 50px;
+}
+
+footer p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+}

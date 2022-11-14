@@ -1,9 +1,12 @@
 import { useState, useRef, useMemo, useEffect } from 'react';
 import { Marker } from 'react-leaflet';
-import markerIconPng from 'leaflet/dist/images/marker-icon.png';
-import { Icon } from 'leaflet';
+import { iconeResidencia, iconeComercio, iconeParque } from './icones.js';
 
-function DraggableMarker({ markerPosition }) {
+const DraggableMarker = ({
+  markerPosition,
+  estabelecimento,
+  setEstabelecimento,
+}) => {
   const center = {
     lat: markerPosition[0],
     lng: markerPosition[1],
@@ -16,38 +19,37 @@ function DraggableMarker({ markerPosition }) {
         const marker = markerRef.current;
         if (marker != null) {
           setPosition(marker.getLatLng());
+          const coordenadas = marker.getLatLng();
+          setEstabelecimento({
+            ...estabelecimento,
+            latitude: coordenadas.lat,
+            longitude: coordenadas.lng,
+          });
         }
       },
     }),
     []
   );
+  const [icone, setIcone] = useState(iconeResidencia);
 
   useEffect(() => {
-    const { lat, lng } = position;
-    fetch(
-      `https://api.tomtom.com/search/2/reverseGeocode/${lat},${lng}.json?key=e299rwXhsQwkn8JZObN03HvAf5Wl2aBC&radius=100`
-    )
-      .then((r) => r.json())
-      .then(({ addresses }) =>
-        console.log(addresses[0].address.freeformAddress)
-      );
-  }, [position]);
+    if (estabelecimento.tipo === 'r') setIcone(iconeResidencia);
+    else if (estabelecimento.tipo === 'c') setIcone(iconeComercio);
+    else if (estabelecimento.tipo === 'p') setIcone(iconeParque);
+  }, [estabelecimento.tipo]);
 
   return (
-    <Marker
-      draggable={true}
-      eventHandlers={eventHandlers}
-      position={position}
-      ref={markerRef}
-      icon={
-        new Icon({
-          iconUrl: markerIconPng,
-          iconSize: [25, 41],
-          iconAnchor: [12, 41],
-        })
-      }
-    ></Marker>
+    <>
+      <Marker
+        draggable={true}
+        eventHandlers={eventHandlers}
+        position={position}
+        ref={markerRef}
+        tipo={estabelecimento.tipo}
+        icon={icone}
+      ></Marker>
+    </>
   );
-}
+};
 
 export default DraggableMarker;

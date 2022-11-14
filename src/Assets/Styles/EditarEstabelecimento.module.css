@@ -1,0 +1,77 @@
+.container {
+  width: 60%;
+  margin: 30px auto;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+}
+
+.editarEstabelecimentoForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #3aafa1;
+  border-radius: 5px;
+  padding: 50px;
+}
+
+.editarEstabelecimentoForm input,
+.editarEstabelecimentoForm select {
+  display: block;
+  width: 70%;
+  height: 40px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  background: #f4f8f7;
+  padding: 10px;
+}
+
+.editarEstabelecimentoForm select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url('../Images//select.svg');
+  background-size: auto 40%;
+  background-repeat: no-repeat;
+  background-position: right 7px center;
+  cursor: pointer;
+}
+
+.editarEstabelecimentoForm input:focus,
+.editarEstabelecimentoForm select:focus {
+  outline: none;
+}
+
+.editarEstabelecimentoForm select.naoSelecionado,
+.editarEstabelecimentoForm option:disabled {
+  color: #c3c6c5;
+}
+
+.editarEstabelecimentoForm option,
+.editarEstabelecimentoForm input:disabled {
+  color: black;
+}
+
+.map {
+  width: 70%;
+  height: 400px;
+  margin-bottom: 30px;
+}
+
+.spinner {
+  display: flex;
+  height: 700px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3aafa1;
+  border-radius: 5px;
+}

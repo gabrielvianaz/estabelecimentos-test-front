@@ -66,9 +66,9 @@
 }
 
 .cadastroForm div.senha span {
-  width: 25px;
+  width: 28px;
   height: 20px;
-  padding-right: 10px;
+  margin-right: 10px;
   cursor: pointer;
 }
 
@@ -78,11 +78,4 @@
 
 .cadastroForm div.senha input[type='text'] + span {
   background: url('../Images/ocultar-senha.svg') no-repeat;
-}
-
-p.erro {
-  align-self: start;
-  color: red;
-  font-weight: bold;
-  margin-bottom: 30px;
 }

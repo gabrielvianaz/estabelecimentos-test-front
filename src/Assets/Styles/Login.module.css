@@ -32,8 +32,9 @@
   margin-bottom: 50px;
 }
 
-.tituloBranco {
+h2 {
   font-size: 3rem;
+  font-weight: bold;
   color: #fff;
   margin-bottom: 50px;
 }
@@ -90,11 +91,4 @@
 
 .loginForm div.senha input[type='text'] + span {
   background: url('../Images/ocultar-senha.svg') no-repeat;
-}
-
-p.erro {
-  align-self: start;
-  color: red;
-  font-weight: bold;
-  margin-bottom: 30px;
 }

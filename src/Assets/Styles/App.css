@@ -4,6 +4,16 @@
   font-family: 'Titillium Web', sans-serif;
 }
 
+main {
+  min-height: calc(100vh - 70px);
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 ::placeholder {
   color: #c3c6c5;
 }
@@ -16,14 +26,36 @@
   color: #c3c6c5;
 }
 
-.tituloVerde {
+h1 {
   font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.tituloVerde {
   color: #3aafa1;
   margin-bottom: 50px;
 }
 
 .tituloBranco {
-  font-size: 3rem;
   color: #fff;
   margin-bottom: 50px;
+}
+
+p.erro {
+  align-self: start;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+p.retornar {
+  color: #3aafa1;
+  font-weight: bold;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+p.retornar:hover {
+  color: #4cbf9a;
 }
