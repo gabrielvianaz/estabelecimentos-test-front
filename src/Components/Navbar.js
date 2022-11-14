@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <>
-      {location.pathname != '/login' && location.pathname != '/cadastro' && (
+      {location.pathname !== '/login' && location.pathname !== '/cadastro' && (
         <nav>
           <Link to="/">Home</Link>
           <p onClick={handleClick}>Sair</p>

@@ -86,7 +86,7 @@ const NovoEstabelecimento = () => {
     } else {
       navigate('/login');
     }
-  }, []);
+  }, [navigate]);
 
   React.useEffect(() => {
     if (estabelecimento.cep.length === 8) {

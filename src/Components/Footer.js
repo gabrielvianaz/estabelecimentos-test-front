@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <>
-      {location.pathname != '/login' && location.pathname != '/cadastro' && (
+      {location.pathname !== '/login' && location.pathname !== '/cadastro' && (
         <footer>
           <p>
             Desenvolvido por:{' '}
