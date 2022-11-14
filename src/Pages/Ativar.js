@@ -2,16 +2,18 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../Assets/Styles/Ativar.module.css';
+import Spinner from '../Components/Spinner';
 
 const Ativar = () => {
   const [mensagem, setMensagem] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
   const { token } = useParams();
   const navigate = useNavigate();
   const effectRan = React.useRef(false);
 
   React.useEffect(() => {
     if (effectRan.current === false) {
-      console.log('oi');
+      setLoading(true);
       axios
         .post(`https://estabelecimentos-back.herokuapp.com/ativar/${token}`)
         .then(() => {
@@ -25,6 +27,7 @@ const Ativar = () => {
           );
         })
         .finally(() => {
+          setLoading(false);
           setTimeout(() => {
             navigate('/login');
           }, 5000);
@@ -39,9 +42,16 @@ const Ativar = () => {
   return (
     <section className={styles.container}>
       <h1 className="tituloVerde">Ativação da conta</h1>
-      <div className={styles.mensagemDiv}>
-        <h3 className={styles.mensagemAtivacao}>{mensagem}</h3>
-      </div>
+
+      {loading ? (
+        <div className={styles.spinner}>
+          <Spinner />
+        </div>
+      ) : (
+        <div className={styles.mensagemDiv}>
+          <h3 className={styles.mensagemAtivacao}>{mensagem}</h3>
+        </div>
+      )}
     </section>
   );
 };

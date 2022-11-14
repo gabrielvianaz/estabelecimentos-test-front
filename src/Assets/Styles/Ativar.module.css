@@ -7,7 +7,7 @@
 .mensagemDiv {
   border: 3px solid #3aafa1;
   border-radius: 5px;
-  height: 700px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,4 +17,13 @@ h3.mensagemAtivacao {
   font-weight: bold;
   color: #3aafa1;
   text-align: center;
+}
+
+.spinner {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3aafa1;
+  border-radius: 5px;
 }
