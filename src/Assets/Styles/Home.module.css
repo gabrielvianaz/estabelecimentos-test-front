@@ -1,0 +1,13 @@
+.container {
+  width: 60%;
+  margin: 30px auto;
+}
+
+.spinner {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #3aafa1;
+  border-radius: 5px;
+}
